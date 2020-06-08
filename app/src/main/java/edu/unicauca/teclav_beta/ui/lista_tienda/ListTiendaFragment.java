@@ -16,7 +16,6 @@ import java.util.ArrayList;
 
 import edu.unicauca.teclav_beta.Producto;
 import edu.unicauca.teclav_beta.R;
-import edu.unicauca.teclav_beta.ui.lista_tienda.dummy.DummyContent;
 
 /**
  * A fragment representing a list of Items.

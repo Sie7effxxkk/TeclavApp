@@ -1,5 +1,6 @@
 package edu.unicauca.teclav_beta.ui.registro;
 
+import android.app.usage.NetworkStatsManager;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,7 +10,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
+import edu.unicauca.teclav_beta.Producto;
 import edu.unicauca.teclav_beta.R;
+import edu.unicauca.teclav_beta.Usuario;
 import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
 
 /**
@@ -19,7 +24,7 @@ import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
  */
 public class RegistroFragment extends Fragment {
     private SlideshowViewModel slideshowViewModel;
-
+    private Usuario mUsuario =new Usuario();
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -68,5 +73,10 @@ public class RegistroFragment extends Fragment {
                 ViewModelProviders.of(this).get(SlideshowViewModel.class);
         View root = inflater.inflate(R.layout.fragment_registro, container, false);
         return root;
+    }
+
+
+    public void entrarCuenta(){
+
     }
 }
