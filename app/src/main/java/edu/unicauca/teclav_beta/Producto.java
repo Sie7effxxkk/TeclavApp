@@ -1,11 +1,14 @@
 package edu.unicauca.teclav_beta;
-import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.widget.ImageView;
-import android.graphics.drawable.Drawable;
+
+import androidx.databinding.BindingAdapter;
+
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 public class Producto {
-    private int mImagenId;
+    private String mUrlImage;
     private String mId;
     private Location mLocalizacion;
     private String mDescripcion;
@@ -14,8 +17,8 @@ public class Producto {
     private boolean mEstado;
     private String mMarca;
 
-    public Producto(int imagenId, String id, Location localizacion, String descripcion, Double precio, boolean nuevo, boolean estado,String marca) {
-        this.mImagenId = imagenId;
+    public Producto(String urlImage, String id, Location localizacion, String descripcion, Double precio, boolean nuevo, boolean estado,String marca) {
+        this.mUrlImage = urlImage;
         this.mId = id;
         this.mLocalizacion = localizacion;
         this.mDescripcion = descripcion;
@@ -29,8 +32,8 @@ public class Producto {
         return mPrecio;
     }
 
-    public int getmImagenId() {
-        return mImagenId;
+    public String getmUrlImage() {
+        return mUrlImage;
     }
 
     public boolean ismNuevo() {
@@ -57,9 +60,6 @@ public class Producto {
         return mLocalizacion;
     }
 
-    public String getmDescripcion() {
-        return mDescripcion;
-    }
 
     public Double getmPrecio() {
         return mPrecio;
@@ -113,11 +113,13 @@ public class Producto {
         return String.valueOf(mPrecio);
     }
 
-
-    //  @BindingAdapter({"imageUrl"})
-    //  public static void loadImage(ImageView view, String imageUrl) {
-    //   Picasso.with(view.getContext()).load("https://falabella.scene7.com/is/image/Falabella/3850092_1?q=i?wid=1500&hei=1500&qlt=70"+imageUrl).into(view);
-    //   }
+    @BindingAdapter("android:src")
+    public static void setImageUrl(ImageView view, String urlImage) {
+        Glide.with(view.getContext()).
+                load(urlImage).
+                placeholder(R.drawable.ic_baseline_image_24).
+                into(view);
+    }
 
 
 }

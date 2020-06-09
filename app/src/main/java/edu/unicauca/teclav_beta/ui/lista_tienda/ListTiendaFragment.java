@@ -23,7 +23,7 @@ import edu.unicauca.teclav_beta.R;
 public class ListTiendaFragment extends Fragment {
     private  ArrayList<Producto> mProducto =new ArrayList<>();
 
-    RecyclerView recyclerViewTienda;
+   private RecyclerView recyclerViewTienda;
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
@@ -73,18 +73,20 @@ public class ListTiendaFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(mProductos, DummyContent.ITEMS));
+            recyclerView.setAdapter(new MyItemRecyclerViewAdapter(mProducto, DummyContent.ITEMS));
         }
 
          */
+
+
         return view;
     }
 
     private void llenarLista() {
-        mProducto.add(new Producto(R.drawable.ic_lavadora_azul_background, "1", null, "Lava muy bien,", 800.000, true, false, "Samsung"));
-        mProducto.add(new Producto(R.mipmap.ic_lavadora_azul, "2", null, "apenas para la abuela, que mucho lava", 9000.00, true, true, "LG"));
-        mProducto.add(new Producto(R.mipmap.ic_lavadora_azul_round, "3", null, "la vendo por necesidad, ayuda plis!", 100000.00, false, true, "Central"));
-        //mProducto.add(new Producto(R.mipmap.ic_lavadora_frontal_gris, "4", null, "suena muy rara,pero lava claro ", 16000.00, false, true, "Home"));
-        //mProducto.add(new Producto(R.mipmap.ic_lavadora_wirlpool, "5", null, "de las mejores del mercado", 1000.00, true, true, "Wirlpool"));
+        mProducto.add(new Producto("https://media.aws.alkosto.com/media/catalog/product/cache/6/image/69ace863370f34bdf190e4e164b6e123/8/8/8806088921914_003.jpg" , "1", null, "Lava muy bien,", 800.000, true, false, "Samsung"));
+        mProducto.add(new Producto("https://pepeganga.vteximg.com.br/arquivos/ids/305721-600-600/790372-1.jpg?v=636553536591730000", "2", null, "apenas para la abuela, que mucho lava", 9000.00, true, true, "LG"));
+        mProducto.add(new Producto("https://metrocolombiafood.vteximg.com.br/arquivos/ids/243773-750-750/image-6bf83c9d64054618b0edd5e12888cc5c.jpg?v=637014886620900000", "3", null, "la vendo por necesidad, ayuda plis!", 100000.00, false, true, "Central"));
+        mProducto.add(new Producto("https://hosteleria10.com/recursos/fotos/whirlpool-lavadora-awg-812-pro-01.jpg", "4", null, "suena muy rara,pero lava claro ", 16000.00, false, true, "Home"));
+        mProducto.add(new Producto("https://mundoinnovos.com/wp-content/uploads/2018/10/LavSecHaceb-15kg-2-1.jpg", "5", null, "de las mejores del mercado", 1000.00, true, true, "Wirlpool"));
     }
 }
