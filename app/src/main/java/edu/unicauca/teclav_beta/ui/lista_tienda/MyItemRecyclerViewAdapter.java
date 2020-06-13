@@ -18,8 +18,15 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     private final ArrayList<Producto> mProductos;
     //listener
-    private  View.OnClickListener listener;
+    private static View.OnClickListener mOnItemClickListener;
+    private static View.OnClickListener mOnButtonClickListener;
 
+    public void setOnItemClickListener(View.OnClickListener itemClickListener) {
+        mOnItemClickListener = itemClickListener;
+    }
+    public void setmOnButtonClickListener(View.OnClickListener buttonClickListener) {
+        mOnButtonClickListener = buttonClickListener;
+    }
     public MyItemRecyclerViewAdapter(ArrayList<Producto> productos) {
         this.mProductos = productos;
     }
@@ -57,13 +64,18 @@ public class MyItemRecyclerViewAdapter extends RecyclerView.Adapter<MyItemRecycl
 
     @Override
     public void onClick(View v) {
-        if (listener!=null){
-            listener.onClick(v);
+        if (mOnItemClickListener!=null){
+            mOnItemClickListener.onClick(v);
+        }else{
+            if(mOnButtonClickListener!=null){
+                mOnButtonClickListener.onClick(v);
+
+            }
         }
 
     }
-    public void setOnClickListener(View.OnClickListener listener){
-        this.listener = listener;
+    public void setOnClickListener(View.OnClickListener itemClickListener){
+        this.mOnItemClickListener = itemClickListener;
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
@@ -85,6 +97,9 @@ public final View parentView;
             imageView =itemView.findViewById(R.id.imageView);
 
              */
+            itemView.setTag(this);
+            itemView.setOnClickListener(mOnItemClickListener);
+
         }
     }
 

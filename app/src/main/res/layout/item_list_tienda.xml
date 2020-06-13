@@ -14,72 +14,101 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="370dp">
+            android:layout_height="match_parent"
+            android:layout_marginTop="1dp"
+            android:background="#E6F8F5">
 
 
             <TextView
-                android:id="@+id/text_precio"
+                android:id="@+id/text_esNuevo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@{producto.esNuevo()}"
-                android:textAppearance="?attr/textAppearanceListItem"
-                android:translationY="-66dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{producto.descripcion}"
-                android:translationY="-108dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
-
-            <TextView
-                android:id="@+id/textView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{producto.DubleaTexto()}"
-                android:translationY="-86dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView"
-                app:layout_constraintVertical_bias="0.575" />
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="381dp"
-                android:layout_height="260dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginLeft="16dp"
                 android:layout_marginEnd="16dp"
                 android:layout_marginRight="16dp"
-                android:translationY="-54dp"
-                app:layout_constraintBottom_toTopOf="@+id/textView"
+                android:text="@{producto.esNuevo()}"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textColor="#0B0B0B"
+                android:translationY="-66dp"
+                app:layout_constraintBottom_toTopOf="@+id/text_Precio"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:src="@{producto.getmUrlImage}"
-                />
+                app:layout_constraintTop_toBottomOf="@+id/text_Descripcion" />
 
-            <Button
-                android:id="@+id/button2"
+            <TextView
+                android:id="@+id/text_Descripcion"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Comprar"
-                android:translationY="-34dp"
+
+                android:layout_height="34dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#E6F8F5"
+                android:text="@{producto.descripcion}"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                android:translationY="-108dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_precio" />
+                app:layout_constraintTop_toBottomOf="@+id/text_Precio"
+                app:layout_constraintVertical_bias="0.52" />
+
+            <TextView
+                android:id="@+id/text_Precio"
+                android:layout_width="0dp"
+                android:layout_height="21dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:text="@{producto.DubleaTexto()}"
+                android:textColor="#000000"
+                android:translationY="-86dp"
+
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_Descripcion"
+                app:layout_constraintVertical_bias="0.41000003" />
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="375dp"
+                android:layout_height="248dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="#E6F8F5"
+                android:src="@{producto.getmUrlImage}"
+                android:translationY="-54dp"
+                app:layout_constraintBottom_toTopOf="@+id/text_Descripcion"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/text_marca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="29dp"
+                android:text="@{producto.getmMarca}"
+                android:translationY="-65dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/text_esNuevo"
+                app:layout_constraintVertical_bias="0.0" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

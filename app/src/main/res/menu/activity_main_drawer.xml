@@ -10,11 +10,20 @@
             android:title="Tienda" />
         <item
             android:id="@+id/nav_registro"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_baseline_people_outline_24"
             android:title="Registro" />
+
         <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:id="@+id/nav_Perfil"
+            android:icon="@drawable/ic_baseline_person_24"
+            android:title="Perfil" />
+        <item
+            android:id="@+id/nav_vender"
+            android:icon="@drawable/ic_baseline_local_offer_24"
+            android:title="Vender" />
+        <item
+            android:id="@+id/nav_usarios"
+            android:icon="@drawable/ic_baseline_assignment_ind_24"
+            android:title="Usuarios" />
     </group>
 </menu>

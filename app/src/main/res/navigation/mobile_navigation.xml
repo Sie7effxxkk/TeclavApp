@@ -9,17 +9,34 @@
         android:id="@+id/nav_tienda"
         android:name="edu.unicauca.teclav_beta.ui.lista_tienda.ListTiendaFragment"
         android:label="Tienda"
-        tools:layout="@layout/fragment_list_tienda" />
+        tools:layout="@layout/fragment_list_tienda" >
+        <action
+            android:id="@+id/action_nav_tienda_to_compraFragment"
+            app:destination="@id/compraFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_registro"
-        android:name="edu.unicauca.teclav_beta.ui.registro.RegistroFragment"
+        android:name="edu.unicauca.teclav_beta.ui.login.LoginFragment"
         android:label="Registro"
-        tools:layout="@layout/fragment_registro" />
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_nav_registro_to_compraFragment"
+            app:destination="@id/compraFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="edu.unicauca.teclav_beta.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/compraFragment"
+        android:name="edu.unicauca.teclav_beta.ui.registrar.RegistroFragment"
+        android:label="fragment_compra"
+        tools:layout="@layout/fragment_registro" >
+        <action
+            android:id="@+id/action_compraFragment_to_nav_tienda"
+            app:destination="@id/nav_tienda" />
+    </fragment>
 </navigation>

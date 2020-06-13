@@ -1,5 +1,6 @@
 package edu.unicauca.teclav_beta;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
@@ -17,8 +18,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity {
-
+   private boolean menuLogin;
     private AppBarConfiguration mAppBarConfiguration;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,16 +37,31 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_tienda, R.id.nav_registro, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
+
+        Intent i = getIntent();
+        //Get the intent information
+        Bundle b = i.getExtras();
+
+        menuLogin=b.getBoolean("true");
+
+
+            NavigationView navigationView = findViewById(R.id.nav_view);
+            mAppBarConfiguration = new AppBarConfiguration.Builder(
+                    R.id.nav_tienda, R.id.nav_registro, R.id.nav_slideshow)
+                    .setDrawerLayout(drawer)
+                    .build();
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+            NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+            NavigationUI.setupWithNavController(navigationView, navController);
+
+
+
+
+
+
     }
 
     @Override
