@@ -5,51 +5,33 @@ import android.widget.ImageView;
 import androidx.databinding.BindingAdapter;
 
 import com.bumptech.glide.Glide;
-import com.squareup.picasso.Picasso;
 
-public class Producto {
+import java.io.Serializable;
+
+public class Producto implements Serializable {
     private String mUrlImage;
     private String mId;
     private Location mLocalizacion;
     private String mDescripcion;
     private Double mPrecio;
-    private boolean mNuevo;
     private boolean mEstado;
+    private int mDisponible;
     private String mMarca;
 
-    public Producto(String urlImage, String id, Location localizacion, String descripcion, Double precio, boolean nuevo, boolean estado,String marca) {
-        this.mUrlImage = urlImage;
-        this.mId = id;
-        this.mLocalizacion = localizacion;
-        this.mDescripcion = descripcion;
-        this.mPrecio = precio;
-        this.mNuevo = nuevo;
-        this.mEstado = estado;
-        this.mMarca = marca;
+    public Producto(String mUrlImage, String mId, Location mLocalizacion, String mDescripcion, Double mPrecio, boolean mEstado, int mDisponible, String mMarca) {
+        this.mUrlImage = mUrlImage;
+        this.mId = mId;
+        this.mLocalizacion = mLocalizacion;
+        this.mDescripcion = mDescripcion;
+        this.mPrecio = mPrecio;
+        this.mEstado = mEstado;
+        this.mDisponible = mDisponible;
+        this.mMarca = mMarca;
     }
 
-    public Double getPrecio() {
-        return mPrecio;
-    }
 
     public String getmUrlImage() {
         return mUrlImage;
-    }
-
-    public boolean ismNuevo() {
-        if (mNuevo == true) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    public boolean ismEstado() {
-        return mEstado;
-    }
-
-    public String getmMarca() {
-        return mMarca;
     }
 
     public String getmId() {
@@ -60,56 +42,47 @@ public class Producto {
         return mLocalizacion;
     }
 
+    public String getmDescripcion() {
+        return mDescripcion;
+    }
 
     public Double getmPrecio() {
         return mPrecio;
     }
 
-
-
-    public String getId() {
-        return mId;
+    public boolean ismEstado() {
+        return mEstado;
     }
 
-    public Location getLocalizacion() {
-        return mLocalizacion;
+    public int getmDisponible() {
+        return mDisponible;
     }
 
-    public String getDescripcion() {
-        return mDescripcion;
+    public String getmMarca() {
+        return mMarca;
     }
 
-
-
-
-    public String esNuevo() {
-        if (mNuevo == true) {
-            return "Nuevo";
+    public String comprobarEstado() {
+        if (mEstado == true) {
+            return "Estado: Nuevo";
         } else {
-            return "Segunda Mano";
+            return "Estado:Segunda Mano";
         }
 
     }
-    public String esEstado(){
-        if (mEstado==true){
-            return "En Venta";
-        }else {
-            return "Vendido";
-        }
-
-    }
-
-
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Producto)
-            return (((Producto) obj).getId().contentEquals(mId));
+            return (((Producto) obj).getmId().contentEquals(mId));
         else
             return false;
     }
 
+    public String Dispinibilidad(){
+        return "Disponibles:"+ String.valueOf(mDisponible);
+    }
 
-    public String DubleaTexto() {
+    public String DubleaPrecio() {
         return String.valueOf(mPrecio);
     }
 
@@ -120,6 +93,9 @@ public class Producto {
                 placeholder(R.drawable.ic_baseline_image_24).
                 into(view);
     }
+public int imagenToIn(){
+        return Integer.parseInt(mUrlImage);
+}
 
 
 }

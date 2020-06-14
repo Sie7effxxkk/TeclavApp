@@ -1,20 +1,33 @@
 package edu.unicauca.teclav_beta.ui.detalles;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.Serializable;
+
+import edu.unicauca.teclav_beta.Producto;
+import edu.unicauca.teclav_beta.databinding.FragmentDatallesBinding;
 
 import edu.unicauca.teclav_beta.MainActivity;
 import edu.unicauca.teclav_beta.R;
+import edu.unicauca.teclav_beta.databinding.ItemListTiendaBinding;
+import edu.unicauca.teclav_beta.ui.compra.ConfirmaCompra;
+import edu.unicauca.teclav_beta.ui.lista_tienda.MyItemRecyclerViewAdapter;
 import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
 
 /*
@@ -23,7 +36,10 @@ import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
  * Use the {@link CompraFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DetallesFragment extends Fragment {
+public class DetallesFragment extends Fragment   {
+    TextView marca_detalle,precio_detalle,descripcion_detalle,estado_detalle,disponibles_detalle;
+    ImageView imgen_detalle;
+    FragmentDatallesBinding  binding;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -46,28 +62,48 @@ public class DetallesFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment CompraFragment.
      */
-    // TODO: Rename and change types and number of parameters
-   /* public static CompraFragment newInstance(String param1, String param2) {
-        CompraFragment fragment = new CompraFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
 
-        return fragment;
-    }
-
-
-    */
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View root= inflater.inflate(R.layout.fragment_datalles, container, false);
+        binding = FragmentDatallesBinding.inflate(LayoutInflater.from(container.getContext()),container,false);
+        Bundle obProducto= getArguments();
+        final Producto producto;
+        producto =(Producto) obProducto.getSerializable("objeto");
+        binding.setProducto(producto);
+        binding.executePendingBindings();
+        View view = binding.getRoot();
+      /*  marca_detalle = view.findViewById(R.id.marca_detalle);
+        descripcion_detalle=view.findViewById(R.id.descripcion_detalle);
+        precio_detalle=view.findViewById(R.id.descripcion_detalle);
+        estado_detalle=view.findViewById(R.id.estado_detalles);
+        disponibles_detalle=view.findViewById(R.id.descripcion_detalle);
+        imgen_detalle=view.findViewById(R.id.imageView3);
+       if (producto==null){
 
-        return root;
+            marca_detalle.setText(producto.getmMarca());
+            descripcion_detalle.setText(producto.getmDescripcion());
+            precio_detalle.setText(producto.DubleaPrecio());
+            estado_detalle.setText(producto.comprobarEstado());
+           disponibles_detalle.setText(producto.Dispinibilidad());
+           imgen_detalle.setImageResource(integer.);
+       }
+
+       */
+        Button bComprar = view.findViewById(R.id.button_comprar);
+        bComprar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getActivity(), ConfirmaCompra.class);
+                startActivity(i);
+
+            }
+        });
+
+
+      return view;
     }
+
+
+
 }

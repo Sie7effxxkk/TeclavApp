@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import edu.unicauca.teclav_beta.MainActivity;
@@ -30,9 +31,9 @@ import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
  * Use the {@link LoginFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements Serializable {
     private SlideshowViewModel slideshowViewModel;
-    private int LoginDesdeLogin=1;
+    private int LoginDesdeLogin = 1;
     private EditText editNombre;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -80,10 +81,10 @@ public class LoginFragment extends Fragment {
                              Bundle savedInstanceState) {
 
 
-         final View root= inflater.inflate(R.layout.fragment_login, container, false);final EditText Nombre=root.findViewById(R.id.editTextTextPersonName);
-        Button bRegistrar=root.findViewById(R.id.button_registrarse);
+        final View root = inflater.inflate(R.layout.fragment_login, container, false);
+        Button bRegistrar = root.findViewById(R.id.button_registrarse);
 
-        Button bEntrar=root.findViewById(R.id.buttonEntrar_login);
+        Button bEntrar = root.findViewById(R.id.buttonEntrar_login);
 
         @SuppressLint("CutPasteId") final EditText editText = root.findViewById(R.id.editTextTextPersonName);
 
@@ -91,40 +92,38 @@ public class LoginFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                FragmentTransaction fr=getFragmentManager().beginTransaction();
-                fr.replace(R.id.nav_host_fragment,new RegistroFragment());
+                FragmentTransaction fr = getFragmentManager().beginTransaction();
+                fr.replace(R.id.nav_host_fragment, new RegistroFragment());
                 fr.commit();
             }
         });
 
-    bEntrar.setOnClickListener(new View.OnClickListener() {
+        bEntrar.setOnClickListener(new View.OnClickListener() {
 
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        @Override
-        public void onClick(View v) {
-             Usuario mUsuario = new Usuario();
-             String andres;
-            String comparar=mUsuario.getmNombre();
-            andres = editText.getText().toString();
-            if(Objects.equals(andres, comparar)){
-                Intent i = new Intent(getActivity(), MainActivity.class);
-                i.putExtra("TRUE",LoginDesdeLogin);
-                startActivity(i);
-            }else{
-                Toast.makeText(getContext(), "You Clicked:"+andres, Toast.LENGTH_SHORT).show();
+            @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+            @Override
+            public void onClick(View v) {
+                Usuario mUsuario = new Usuario();
+                String andres;
+                String comparar = mUsuario.getmNombre();
+                andres = editText.getText().toString();
+                if (Objects.equals(andres, comparar)) {
+                    Intent i = new Intent(getActivity(), MainActivity.class);
+                    i.putExtra("TRUE", LoginDesdeLogin);
+                    startActivity(i);
+                } else {
+                    Toast.makeText(getContext(), "Datos Erroneos" + andres, Toast.LENGTH_SHORT).show();
+                }
             }
-        }
         });
-    return root;
+        return root;
     }
+
     @Override
-    public void onViewCreated( View view, Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-     
-    }
-
-
-    public void irActividadMain(){
 
     }
+
+
 }
