@@ -8,8 +8,8 @@ import android.os.Bundle;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.lifecycle.ViewModelProviders;
 
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,9 +20,10 @@ import android.widget.Toast;
 import java.io.Serializable;
 import java.util.Objects;
 
-import edu.unicauca.teclav_beta.MainActivity;
 import edu.unicauca.teclav_beta.R;
 import edu.unicauca.teclav_beta.Usuario;
+import edu.unicauca.teclav_beta.MenuLoginActivity;
+import edu.unicauca.teclav_beta.ui.detalles.DetallesFragment;
 import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
 import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
 
@@ -33,6 +34,7 @@ import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
  */
 public class LoginFragment extends Fragment implements Serializable {
     private SlideshowViewModel slideshowViewModel;
+    public final static String EXTRA_NOMBRE = "edu.unicauca.teclav_beta.Usuario";
     private int LoginDesdeLogin = 1;
     private EditText editNombre;
 
@@ -104,15 +106,17 @@ public class LoginFragment extends Fragment implements Serializable {
             @Override
             public void onClick(View v) {
                 Usuario mUsuario = new Usuario();
-                String andres;
+                String nombreNav;
                 String comparar = mUsuario.getmNombre();
-                andres = editText.getText().toString();
-                if (Objects.equals(andres, comparar)) {
-                    Intent i = new Intent(getActivity(), MainActivity.class);
-                    i.putExtra("TRUE", LoginDesdeLogin);
+                nombreNav = editText.getText().toString();
+                if (Objects.equals(nombreNav, comparar)) {
+                    Intent i = new Intent(getActivity(), MenuLoginActivity.class);
+                    i.putExtra("NOMBRE",mUsuario.getmNombre());
+                    i.putExtra("CORREO",mUsuario.getmCorreo());
+                    i.putExtra("FOTO",mUsuario.getmFoto());
                     startActivity(i);
                 } else {
-                    Toast.makeText(getContext(), "Datos Erroneos" + andres, Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getContext(), "Incorrect" + nombreNav, Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -124,6 +128,7 @@ public class LoginFragment extends Fragment implements Serializable {
         super.onViewCreated(view, savedInstanceState);
 
     }
+
 
 
 }

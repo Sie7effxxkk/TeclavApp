@@ -1,9 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item android:id="@+id/file"
+            android:title="Comercio" >
+            <!-- "file" submenu -->
+            <menu>
+                <item android:id="@+id/nav_tienda"
+                    android:icon="@drawable/ic_baseline_local_offer_24"
+                    android:title="Tienda" />
+                <item android:id="@+id/nav_vender"
+                    android:icon="@drawable/ic_baseline_attach_money_24"
+                    android:title="Vender" />
+            </menu>
+        </item>
         <item
-            android:id="@+id/action_settings"
-            android:orderInCategory="100"
-            android:title="@string/action_settings"
-            app:showAsAction="never" />
-    </menu>
+            android:title="Ingreso">
+            <menu>
+                <item android:id="@+id/nav_sesion"
+                    android:title="Ininicar Sesion"
+                    android:icon="@drawable/ic_baseline_person_24"/>
+
+            </menu>
+        </item>
+        <item
+            android:title="Reparacion">
+            <menu>
+                <item android:id="@+id/nav_test"
+                    android:title="Test"
+                    android:icon="@drawable/ic_baseline_tune_24"/>
+                <item android:id="@+id/nav_tecnico"
+                    android:icon="@drawable/ic_baseline_transfer_within_a_station_24"
+                    android:title="Tecnico" />
+            </menu>
+
+        </item>
+    </group>
+</menu>

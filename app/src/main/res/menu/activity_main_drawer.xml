@@ -1,30 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
+    <item android:id="@+id/file"
+        android:title="Comercio" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/nav_tienda"
+                android:icon="@drawable/ic_baseline_local_offer_24"
+                android:title="Tienda" />
+        </menu>
+    </item>
         <item
-            android:id="@+id/nav_tienda"
-            android:icon="@drawable/ic_baseline_attach_money_24"
-            android:title="Tienda" />
+            android:title="Ingreso">
+            <menu>
+                <item android:id="@+id/nav_login"
+                    android:title="Ininicar Sesion"
+                    android:icon="@drawable/ic_baseline_people_outline_24"/>
+                <item android:id="@+id/nav_registro"
+                    android:icon="@drawable/ic_baseline_person_24"
+                    android:title="Registro" />
+            </menu>
+        </item>
         <item
-            android:id="@+id/nav_registro"
-            android:icon="@drawable/ic_baseline_people_outline_24"
-            android:title="Registro" />
+            android:title="Reparacion">
+            <menu>
+                <item android:id="@+id/nav_test"
+                    android:title="Test"
+                    android:icon="@drawable/ic_baseline_tune_24"/>
+                <item android:id="@+id/nav_tecnico"
+                    android:icon="@drawable/ic_baseline_transfer_within_a_station_24"
+                    android:title="Tecnico" />
+            </menu>
 
-        <item
-            android:id="@+id/nav_Perfil"
-            android:icon="@drawable/ic_baseline_person_24"
-            android:title="Perfil" />
-        <item
-            android:id="@+id/nav_vender"
-            android:icon="@drawable/ic_baseline_local_offer_24"
-            android:title="Vender" />
-        <item
-            android:id="@+id/nav_usarios"
-            android:icon="@drawable/ic_baseline_assignment_ind_24"
-            android:title="Usuarios" />
+        </item>
     </group>
 </menu>

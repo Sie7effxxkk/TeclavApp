@@ -1,15 +1,9 @@
 package edu.unicauca.teclav_beta.ui.detalles;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,17 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.io.Serializable;
-
 import edu.unicauca.teclav_beta.Producto;
 import edu.unicauca.teclav_beta.databinding.FragmentDatallesBinding;
 
-import edu.unicauca.teclav_beta.MainActivity;
 import edu.unicauca.teclav_beta.R;
-import edu.unicauca.teclav_beta.databinding.ItemListTiendaBinding;
-import edu.unicauca.teclav_beta.ui.compra.ConfirmaCompra;
-import edu.unicauca.teclav_beta.ui.lista_tienda.MyItemRecyclerViewAdapter;
-import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
+import edu.unicauca.teclav_beta.MenuLoginActivity;
 
 /*
 /**
@@ -73,6 +61,7 @@ public class DetallesFragment extends Fragment   {
         binding.setProducto(producto);
         binding.executePendingBindings();
         View view = binding.getRoot();
+
       /*  marca_detalle = view.findViewById(R.id.marca_detalle);
         descripcion_detalle=view.findViewById(R.id.descripcion_detalle);
         precio_detalle=view.findViewById(R.id.descripcion_detalle);
@@ -94,7 +83,7 @@ public class DetallesFragment extends Fragment   {
         bComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), ConfirmaCompra.class);
+                Intent i = new Intent(getActivity(), MenuLoginActivity.class);
                 startActivity(i);
 
             }

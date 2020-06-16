@@ -12,12 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ui.compra.ConfirmaCompra"
-
-            android:parentActivityName="edu.unicauca.teclav_beta.ui.compra.ConfirmaCompra" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.unicauca.teclav_beta.MainActivity" />
+        <activity android:name=".MenuLoginActivity">
 
         </activity>
         <activity

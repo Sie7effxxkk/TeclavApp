@@ -73,7 +73,7 @@ public class ListTiendaFragment extends Fragment {
             bundle.putSerializable("objeto",thisItem);
             detallesFragment.setArguments(bundle);
             FragmentTransaction fr=getFragmentManager().beginTransaction();
-            fr.add(R.id.nav_host_fragment,detallesFragment);
+            fr.replace(R.id.nav_host_fragment,detallesFragment);
             fr.addToBackStack(null);
             fr.commit();
         }
