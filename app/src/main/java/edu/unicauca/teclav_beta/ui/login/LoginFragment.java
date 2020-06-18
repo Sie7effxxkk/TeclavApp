@@ -9,7 +9,6 @@ import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,9 +22,7 @@ import java.util.Objects;
 import edu.unicauca.teclav_beta.R;
 import edu.unicauca.teclav_beta.Usuario;
 import edu.unicauca.teclav_beta.MenuLoginActivity;
-import edu.unicauca.teclav_beta.ui.detalles.DetallesFragment;
 import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
-import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -33,9 +30,9 @@ import edu.unicauca.teclav_beta.ui.slideshow.SlideshowViewModel;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment implements Serializable {
-    private SlideshowViewModel slideshowViewModel;
+    ;
     public final static String EXTRA_NOMBRE = "edu.unicauca.teclav_beta.Usuario";
-    private int LoginDesdeLogin = 1;
+    private boolean LoginDesdeLogin = false;
     private EditText editNombre;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -114,7 +111,7 @@ public class LoginFragment extends Fragment implements Serializable {
                     i.putExtra("NOMBRE",mUsuario.getmNombre());
                     i.putExtra("CORREO",mUsuario.getmCorreo());
                     i.putExtra("FOTO",mUsuario.getmFoto());
-                    startActivity(i);
+                    startActivityForResult(i,0);
                 } else {
                     Toast.makeText(getContext(), "Incorrect" + nombreNav, Toast.LENGTH_SHORT).show();
                 }

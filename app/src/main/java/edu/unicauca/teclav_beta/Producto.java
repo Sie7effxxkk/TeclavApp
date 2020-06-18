@@ -17,6 +17,7 @@ public class Producto implements Serializable {
     private boolean mEstado;
     private int mDisponible;
     private String mMarca;
+    private String mTitulo;
 
     public Producto(String mUrlImage, String mId, Location mLocalizacion, String mDescripcion, Double mPrecio, boolean mEstado, int mDisponible, String mMarca) {
         this.mUrlImage = mUrlImage;

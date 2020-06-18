@@ -9,102 +9,107 @@
     </data>
     <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="368dp">
+        android:layout_height="match_parent">
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="1dp"
-            android:background="#E6F8F5">
+            android:layout_marginTop="5dp"
+            android:background="#ECFAF7">
+
             <TextView
                 android:id="@+id/text_esNuevo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:text="@{producto.comprobarEstado()}"
                 android:textAppearance="?attr/textAppearanceListItem"
                 android:textColor="#0B0B0B"
                 android:translationY="-66dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_Precio"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_Descripcion" />
+                tools:layout_editor_absoluteX="16dp"
+                tools:layout_editor_absoluteY="425dp" />
 
             <TextView
                 android:id="@+id/text_Descripcion"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
 
                 android:layout_height="34dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
                 android:background="#E6F8F5"
                 android:text="@{producto.getmDescripcion}"
                 android:textColor="#000000"
                 android:textSize="16sp"
                 android:translationY="-108dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_Precio"
-                app:layout_constraintVertical_bias="0.52" />
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="626dp" />
 
             <TextView
                 android:id="@+id/text_Precio"
-                android:layout_width="0dp"
-                android:layout_height="21dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="pa"
                 android:text="@{producto.DubleaPrecio}"
                 android:textColor="#000000"
                 android:translationY="-86dp"
 
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_Descripcion"
-                app:layout_constraintVertical_bias="0.41000003" />
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="533dp" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="375dp"
+                android:layout_width="match_parent"
                 android:layout_height="248dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginRight="5dp"
                 android:background="#E6F8F5"
                 android:src="@{producto.getmUrlImage}"
                 android:translationY="-54dp"
-                app:layout_constraintBottom_toTopOf="@+id/text_Descripcion"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                tools:layout_editor_absoluteY="111dp" />
 
             <TextView
                 android:id="@+id/text_marca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="16dp"
-                android:layout_marginEnd="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="29dp"
                 android:text="@{producto.getmMarca}"
                 android:translationY="-65dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
+                tools:layout_editor_absoluteX="-16dp"
+                tools:layout_editor_absoluteY="477dp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="61dp"
+                android:layout_height="25dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="5dp"
+                android:fontFamily="casual"
+                android:text="Titulo:"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="20dp"
+                android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/text_esNuevo"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="401dp"
+                android:layout_height="26dp"
+                android:text="Lavadora LG"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                tools:layout_editor_absoluteX="5dp"
+                tools:layout_editor_absoluteY="30dp" />
+
+            <ImageButton
+                android:id="@+id/imageButton3"
+                android:layout_width="72dp"
+                android:layout_height="50dp"
+                android:background="#00131313"
+                android:soundEffectsEnabled="false"
+                android:tint="#000000"
+                app:srcCompat="@drawable/ic_baseline_insert_emoticon_24"
+                tools:layout_editor_absoluteX="301dp"
+                tools:layout_editor_absoluteY="309dp" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

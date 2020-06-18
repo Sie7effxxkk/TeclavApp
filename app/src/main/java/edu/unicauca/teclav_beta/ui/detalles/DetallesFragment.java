@@ -12,11 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import edu.unicauca.teclav_beta.ConfirmarCompra;
 import edu.unicauca.teclav_beta.Producto;
 import edu.unicauca.teclav_beta.databinding.FragmentDatallesBinding;
 
 import edu.unicauca.teclav_beta.R;
-import edu.unicauca.teclav_beta.MenuLoginActivity;
 
 /*
 /**
@@ -28,6 +28,7 @@ public class DetallesFragment extends Fragment   {
     TextView marca_detalle,precio_detalle,descripcion_detalle,estado_detalle,disponibles_detalle;
     ImageView imgen_detalle;
     FragmentDatallesBinding  binding;
+    private boolean comprar = false;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -62,33 +63,14 @@ public class DetallesFragment extends Fragment   {
         binding.executePendingBindings();
         View view = binding.getRoot();
 
-      /*  marca_detalle = view.findViewById(R.id.marca_detalle);
-        descripcion_detalle=view.findViewById(R.id.descripcion_detalle);
-        precio_detalle=view.findViewById(R.id.descripcion_detalle);
-        estado_detalle=view.findViewById(R.id.estado_detalles);
-        disponibles_detalle=view.findViewById(R.id.descripcion_detalle);
-        imgen_detalle=view.findViewById(R.id.imageView3);
-       if (producto==null){
-
-            marca_detalle.setText(producto.getmMarca());
-            descripcion_detalle.setText(producto.getmDescripcion());
-            precio_detalle.setText(producto.DubleaPrecio());
-            estado_detalle.setText(producto.comprobarEstado());
-           disponibles_detalle.setText(producto.Dispinibilidad());
-           imgen_detalle.setImageResource(integer.);
-       }
-
-       */
         Button bComprar = view.findViewById(R.id.button_comprar);
         bComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getActivity(), MenuLoginActivity.class);
+                Intent i = new Intent(getActivity(), ConfirmarCompra.class);
                 startActivity(i);
-
             }
         });
-
 
       return view;
     }
