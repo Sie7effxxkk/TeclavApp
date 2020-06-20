@@ -2,19 +2,38 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
-
     <group android:checkableBehavior="single">
+    <item android:id="@+id/file"
+        android:title="Comercio" >
+        <!-- "file" submenu -->
+        <menu>
+            <item android:id="@+id/nav_tienda"
+                android:icon="@drawable/ic_baseline_storefront_24"
+                android:title="Tienda" />
+        </menu>
+    </item>
         <item
-            android:id="@+id/nav_tienda"
-            android:icon="@drawable/ic_baseline_attach_money_24"
-            android:title="Tienda" />
+            android:title="Ingreso">
+            <menu>
+                <item android:id="@+id/nav_login"
+                    android:title="Inicar Sesion"
+                    android:icon="@drawable/ic_baseline_people_outline_24"/>
+                <item android:id="@+id/nav_registro"
+                    android:icon="@drawable/ic_baseline_person_24"
+                    android:title="Registro" />
+            </menu>
+        </item>
         <item
-            android:id="@+id/nav_registro"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Registro" />
-        <item
-            android:id="@+id/nav_slideshow"
-            android:icon="@drawable/ic_menu_slideshow"
-            android:title="@string/menu_slideshow" />
+            android:title="Reparacion">
+            <menu>
+                <item android:id="@+id/nav_test"
+                    android:title="Test"
+                    android:icon="@drawable/ic_baseline_local_laundry_service_24"/>
+                <item android:id="@+id/nav_tecnico"
+                    android:icon="@drawable/ic_baseline_supervised_user_circle_24"
+                    android:title="Tecnico" />
+            </menu>
+
+        </item>
     </group>
 </menu>

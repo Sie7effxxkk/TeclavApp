@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="producto"
+        type="edu.unicauca.teclav_beta.Producto" />
+</data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F6F1E4"
+        tools:context=".ui.detalles.DetallesFragment">
+
+
+        <TextView
+            android:id="@+id/text_disponibles_detalles"
+            android:layout_width="50dp"
+            android:layout_height="19dp"
+            android:layout_marginEnd="68dp"
+            android:layout_marginRight="68dp"
+            android:layout_marginBottom="68dp"
+            android:text="@{producto.Dispinibilidad}"
+            android:translationX="41dp"
+            android:translationY="-12dp"
+            app:layout_constraintBottom_toTopOf="@+id/scroll_comentarios"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView37"
+            app:layout_constraintTop_toBottomOf="@+id/imageButton11" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="301dp"
+            android:layout_height="237dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginEnd="29dp"
+            android:layout_marginRight="29dp"
+            android:background="#F6F1E4"
+            android:src="@{producto.getmUrlImage}"
+            android:translationY="-6dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton11"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView16" />
+
+        <Button
+            android:id="@+id/button_comprar"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginRight="12dp"
+            android:background="#F6BA23"
+            android:fontFamily="casual"
+            android:text="Comprar"
+            android:textAllCaps="false"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            android:translationY="-22dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scroll_comentarios" />
+
+        <ScrollView
+            android:id="@+id/scroll_comentarios"
+            android:layout_width="340dp"
+            android:layout_height="95dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginBottom="35dp"
+            android:background="#FFFFFF"
+            android:translationX="-10dp"
+            android:translationY="-28dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/button_comprar"
+            app:layout_constraintTop_toBottomOf="@+id/cometarios_detalles">
+
+            <TextView
+                android:id="@+id/text_comentarios_detalles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:text="sadasdasdasdasdasdasdasdasdasdasdasdasdasfasfsdfasdgsfgsfgsfafsdfsadfsdfasdfkdsfasdfsfdlsdfhsdjfoaghadsjlghsdljghasljdghsdkfhasdkfjadsñfjsdkfjsñkdfjasdkñfjasdfhgdsjgdfklkjgkgdkmbfbdfgdfgdfgdfgdhghdfgdfgdfgfdgdfgdfgdfggdfgdfgdfgdgdfgsgdgfgfgsdfgdsfgdsfgdsgsdfgfdgdfgsdgsdfgdsgsdfgfdgsdgdfgdsfgsdfgsdfgsdfgsdfgsdfgsdfgsdgsdfgsdgsdfg" />
+        </ScrollView>
+
+        <TextView
+            android:id="@+id/cometarios_detalles"
+            android:layout_width="172dp"
+            android:layout_height="20dp"
+            android:fontFamily="casual"
+            android:text="Comentarios:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:translationX="85dp"
+            android:translationY="-20dp"
+            app:layout_constraintBottom_toTopOf="@+id/scroll_comentarios"
+            app:layout_constraintEnd_toStartOf="@+id/scroll_comentarios"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView23" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="casual"
+            android:text="Titulo:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintEnd_toStartOf="@+id/text_tituloDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/text_tituloDetalle"
+            android:layout_width="302dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="13dp"
+            android:layout_marginRight="13dp"
+            android:layout_marginBottom="3dp"
+            android:fontFamily="casual"
+            android:text="@{producto.getmTitulo}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            app:layout_constraintBottom_toTopOf="@+id/imageView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView16"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView23"
+            android:layout_width="84dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:layout_marginBottom="3dp"
+            android:background="#FFFFFF"
+            android:fontFamily="casual"
+            android:text="Clasificacion:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:translationY="-20dp"
+            app:layout_constraintBottom_toTopOf="@+id/cometarios_detalles"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_Estado_detalle" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="50dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:fontFamily="casual"
+            android:text="Precio:"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView31"
+            app:layout_constraintEnd_toStartOf="@+id/text_Precio_detalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <ImageButton
+            android:id="@+id/imageButton5"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginTop="2dp"
+            android:translationY="-18dp"
+            app:layout_constraintBottom_toTopOf="@+id/cometarios_detalles"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton6"
+            app:layout_constraintStart_toEndOf="@+id/textView23"
+            app:layout_constraintTop_toBottomOf="@+id/text_Estado_detalle"
+            app:srcCompat="@drawable/ic_baseline_star_border_24_sisa" />
+
+        <ImageButton
+            android:id="@+id/imageButton6"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="1dp"
+            android:translationY="-15dp"
+            app:layout_constraintBottom_toTopOf="@+id/cometarios_detalles"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton7"
+            app:layout_constraintStart_toEndOf="@+id/imageButton5"
+            app:layout_constraintTop_toBottomOf="@+id/text_Estado_detalle"
+            app:srcCompat="@drawable/ic_baseline_star_border_24_sisa" />
+
+        <ImageButton
+            android:id="@+id/imageButton7"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="5dp"
+            android:translationX="1dp"
+            android:translationY="-17dp"
+            app:layout_constraintBottom_toTopOf="@+id/cometarios_detalles"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+            app:layout_constraintStart_toEndOf="@+id/imageButton6"
+            app:layout_constraintTop_toBottomOf="@+id/textView37"
+            app:srcCompat="@drawable/ic_baseline_star_border_24_sisa" />
+
+        <ImageButton
+            android:id="@+id/imageButton8"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="5dp"
+            android:translationX="1dp"
+            android:translationY="-29dp"
+            app:layout_constraintBottom_toTopOf="@+id/scroll_comentarios"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton9"
+            app:layout_constraintStart_toEndOf="@+id/imageButton7"
+            app:layout_constraintTop_toBottomOf="@+id/textView37"
+            app:srcCompat="@drawable/ic_baseline_star_border_24_sisa" />
+
+        <ImageButton
+            android:id="@+id/imageButton9"
+            android:layout_width="29dp"
+            android:layout_height="29dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="121dp"
+            android:layout_marginRight="121dp"
+            android:translationX="1dp"
+            android:translationY="-31dp"
+            app:layout_constraintBottom_toTopOf="@+id/scroll_comentarios"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton8"
+            app:layout_constraintTop_toBottomOf="@+id/text_disponibles_detalles"
+            app:srcCompat="@drawable/ic_baseline_star_border_24_sisa" />
+
+        <TextView
+            android:id="@+id/text_Precio_detalle"
+            android:layout_width="85dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginEnd="95dp"
+            android:layout_marginRight="95dp"
+            android:fontFamily="casual"
+            android:text="@{producto.DubleaPrecio}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textSize="16dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_Marca_detalle"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton11"
+            app:layout_constraintStart_toEndOf="@+id/textView32"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+        <ImageButton
+            android:id="@+id/imageButton11"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginStart="108dp"
+            android:layout_marginLeft="108dp"
+            android:layout_marginBottom="23dp"
+            android:background="#F6F1E4"
+            android:translationY="-11dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_disponibles_detalles"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton12"
+            app:layout_constraintStart_toEndOf="@+id/text_Marca_detalle"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:srcCompat="@drawable/ic_baseline_location_on_30" />
+
+        <ImageButton
+            android:id="@+id/imageButton12"
+            android:layout_width="37dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="27dp"
+            android:layout_marginRight="27dp"
+            android:layout_marginBottom="99dp"
+            android:background="#F6F1E4"
+            android:translationY="-19dp"
+            app:layout_constraintBottom_toTopOf="@+id/scroll_comentarios"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imageButton11"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3"
+            app:srcCompat="@drawable/ic_baseline_favorite_border_24" />
+
+        <TextView
+            android:id="@+id/textView31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="27dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="casual"
+            android:text="Marca:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:translationX="-4dp"
+            android:translationY="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView35"
+            app:layout_constraintEnd_toStartOf="@+id/text_Marca_detalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView32" />
+
+        <TextView
+            android:id="@+id/text_Marca_detalle"
+            android:layout_width="73dp"
+            android:layout_height="22dp"
+            android:layout_marginBottom="6dp"
+            android:text="@{producto.getmMarca}"
+            android:translationY="4dp"
+            app:layout_constraintBottom_toTopOf="@+id/text_Estado_detalle"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton11"
+            app:layout_constraintStart_toEndOf="@+id/textView31"
+            app:layout_constraintTop_toBottomOf="@+id/text_Precio_detalle" />
+
+        <TextView
+            android:id="@+id/textView35"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginLeft="24dp"
+            android:layout_marginEnd="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_marginBottom="28dp"
+            android:fontFamily="casual"
+            android:text="Estado:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:translationX="6dp"
+            android:translationY="2dp"
+            app:layout_constraintBottom_toTopOf="@+id/textView23"
+            app:layout_constraintEnd_toStartOf="@+id/text_Estado_detalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView31" />
+
+        <TextView
+            android:id="@+id/text_Estado_detalle"
+            android:layout_width="57dp"
+            android:layout_height="21dp"
+            android:layout_marginStart="6dp"
+            android:layout_marginLeft="6dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="casual"
+            android:text="@{producto.comprobarEstado}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:translationX="2dp"
+            android:translationY="-14dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton5"
+            app:layout_constraintEnd_toStartOf="@+id/textView37"
+            app:layout_constraintStart_toEndOf="@+id/textView35"
+            app:layout_constraintTop_toBottomOf="@+id/text_Marca_detalle" />
+
+        <TextView
+            android:id="@+id/textView37"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="6dp"
+            android:fontFamily="casual"
+            android:text="Disponibles:"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:translationX="36dp"
+            android:translationY="-6dp"
+            app:layout_constraintBottom_toTopOf="@+id/imageButton7"
+            app:layout_constraintEnd_toStartOf="@+id/text_disponibles_detalles"
+            app:layout_constraintStart_toEndOf="@+id/text_Estado_detalle"
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

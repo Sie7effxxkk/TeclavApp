@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/text_titulo_fin"
+        android:layout_width="287dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="1dp"
+        android:fontFamily="casual"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Titulo" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="53dp"
+        android:layout_marginBottom="603dp"
+        android:background="#FF49D1E3"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginRight="31dp"
+        android:fontFamily="casual"
+        android:text="!EN HORA BUENA!"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <TextView
+        android:id="@+id/Titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="220dp"
+        android:layout_marginRight="220dp"
+        android:fontFamily="casual"
+        android:text="Has Comprado"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView18"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
+
+    <TextView
+        android:id="@+id/textView18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="229dp"
+        android:layout_marginRight="229dp"
+        android:fontFamily="casual"
+        android:text="Precio:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Titulo"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/text_precio_fin"
+        android:layout_width="116dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginRight="92dp"
+        android:fontFamily="casual"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <TextView
+        android:id="@+id/textView34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="190dp"
+        android:layout_marginRight="190dp"
+        android:fontFamily="casual"
+        android:text="Pago:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        android:translationY="-10dp"
+        app:layout_constraintEnd_toStartOf="@+id/textView38"
+        app:layout_constraintHorizontal_bias="0.304"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_titulo_fin" />
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="165dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="20dp"
+        android:fontFamily="casual"
+        android:text="Encomienda:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_precio_fin" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="261dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:background="#F6BA23"
+        android:fontFamily="casual"
+        android:text="Finalizar Compra"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/imageView_encomienda_fin"
+        app:layout_constraintTop_toBottomOf="@+id/textView41" />
+
+    <TextView
+        android:id="@+id/textView38"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginLeft="2dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="150dp"
+        android:layout_marginRight="150dp"
+        android:fontFamily="casual"
+        android:text="Codigo:"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="26dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/textView36"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toEndOf="@+id/textView41"
+        app:layout_constraintTop_toBottomOf="@+id/text_titulo_fin" />
+
+    <TextView
+        android:id="@+id/textView41"
+        android:layout_width="280dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="55dp"
+        android:layout_marginLeft="55dp"
+        android:text="123D5F52"
+        android:textColor="#000000"
+        android:textSize="26dp"
+        app:layout_constraintStart_toEndOf="@+id/imageView_pago_fin"
+        app:layout_constraintTop_toBottomOf="@+id/textView38" />
+
+    <ImageView
+        android:id="@+id/imageView_pago_fin"
+        android:layout_width="124dp"
+        android:layout_height="97dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:translationY="-10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView34"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <ImageView
+        android:id="@+id/imageView_encomienda_fin"
+        android:layout_width="118dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginRight="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView36"
+        app:srcCompat="@drawable/ic_baseline_image_24" />
+
+    <TextView
+        android:id="@+id/textView_se_envia_gratis"
+        android:layout_width="311dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="29dp"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="3dp"
+        android:fontFamily="casual"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+    <TextView
+        android:id="@+id/textView_domicilio"
+        android:layout_width="327dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:fontFamily="casual"
+        android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
