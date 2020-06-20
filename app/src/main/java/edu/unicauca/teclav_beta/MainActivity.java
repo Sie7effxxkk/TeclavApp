@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Menu;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,21 +22,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity  {
-   private int menuLogin=0;
+
     private AppBarConfiguration mAppBarConfiguration;
-
-    FragmentManager fragmentManager;
-    FragmentTransaction fragmentTransaction;
-
-//Variable del fragmento detalle Producto
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
+//Cargamos Las Vistas
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //cargamos toolbatr
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //boton flotante
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,39 +42,29 @@ public class MainActivity extends AppCompatActivity  {
                         .setAction("Action", null).show();
             }
         });
-        // Passing each menu ID as a set of Ids because each(
-        // menu should be considered as top level destinations.
-        //
+        //control del manego del drawer
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
             NavigationView navigationView = findViewById(R.id.nav_view);
             mAppBarConfiguration = new AppBarConfiguration.Builder(
-                    R.id.nav_tienda, R.id.nav_login, R.id.nav_slideshow)
+                    R.id.nav_tienda, R.id.nav_login, R.id.nav_registro)
                     .setDrawerLayout(drawer)
                     .build();
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
             NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
             NavigationUI.setupWithNavController(navigationView, navController);
-
-
     }
-
+//carga el menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
+    //El controlador de navegacion entre fragments dentro del drawer
     @Override
     public boolean onSupportNavigateUp() {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         return NavigationUI.navigateUp(navController, mAppBarConfiguration)
                 || super.onSupportNavigateUp();
     }
-
-
-
-
-
-
 }

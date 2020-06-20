@@ -35,7 +35,16 @@ public class ListTiendaFragment extends Fragment {
     private RecyclerView recyclerViewTienda;
     private MyItemRecyclerViewAdapter mProductoAdapter =
             new MyItemRecyclerViewAdapter(mProducto);
+    DetallesFragment detallesFragment= new DetallesFragment();
+    private boolean logeado_list;
 
+    public void setLogeado_list(boolean logeado_list) {
+        this.logeado_list = logeado_list;
+    }
+
+    public boolean isLogeado_list() {
+        return logeado_list;
+    }
 
     //Referancias para comunicar Fragments
     Activity activity;
@@ -53,24 +62,26 @@ public class ListTiendaFragment extends Fragment {
     public ListTiendaFragment() {
     }
     //*************************** Add this code *************************************
-    // set a listener to handle events from RecyclerView
 
+    //Funcion click
     private final View.OnClickListener onItemClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View view) {
-            //Step 4 of 4: Finally call getTag() on the view.
-            // This viewHolder will have all required values.
+     //llamamos la vista y la posicion del click en los items del array
             RecyclerView.ViewHolder viewHolder = (RecyclerView.ViewHolder) view.getTag();
             int position = viewHolder.getAdapterPosition();
-            // viewHolder.getItemId();
-            // viewHolder.getItemViewType();
-            // viewHolder.itemView;
+            //Asignamos la posicion del objeto
             Producto thisItem = mProducto.get(position);
-            Toast.makeText(getContext(), "You Clicked: " + thisItem.getmMarca(), Toast.LENGTH_SHORT).show();
-          //  interfaceDetallesFragment.enviarProducto(mProducto.get(recyclerViewTienda.getChildAdapterPosition(view)));
+            Toast.makeText(getContext(), "You Clicked:" + thisItem.getmMarca(), Toast.LENGTH_SHORT).show();
+            //Creamos un fragment y atrapamos los obejetos
             DetallesFragment detallesFragment = new DetallesFragment();
             Bundle bundle = new Bundle();
             bundle.putSerializable("objeto",thisItem);
+            bundle.putBoolean("boolea",logeado_list);
+            if(!isLogeado_list()){
+                detallesFragment.setLogin(true);
+            }
+            //invoca la pantalla de detalles
             detallesFragment.setArguments(bundle);
             FragmentTransaction fr=getFragmentManager().beginTransaction();
             fr.replace(R.id.nav_host_fragment,detallesFragment);
@@ -79,17 +90,7 @@ public class ListTiendaFragment extends Fragment {
         }
     };
 
-
-
-    // TODO: Customize parameter initialization
-    @SuppressWarnings("unused")
-    public static ListTiendaFragment newInstance(int columnCount) {
-        ListTiendaFragment fragment = new ListTiendaFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
-        return fragment;
-    }
+// la vista
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -99,7 +100,7 @@ public class ListTiendaFragment extends Fragment {
         }
 
     }
-
+//posiciona los objetos en la lista
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -116,26 +117,24 @@ public class ListTiendaFragment extends Fragment {
   @Override
     public void onViewCreated(View view,Bundle savedInstanceState){
         super.onViewCreated(view,savedInstanceState);
-// Set the Recycler View adapter
+       //unimos el adaptador al recicler view
         Context context=view.getContext();
         recyclerViewTienda.setLayoutManager(new LinearLayoutManager(context));
-      recyclerViewTienda.setAdapter(mProductoAdapter);
-        //Step 1 of 4: Create and set OnItemClickListener to the adapter.
+       recyclerViewTienda.setAdapter(mProductoAdapter);
       //crear boton comprar
         mProductoAdapter.setOnItemClickListener(onItemClickListener);
-       // botonComprar.setOnClickListener(corkyListener);
     }
 
 
-
+//cargamos Lista
     private void llenarLista() {
-        mProducto.add(new Producto("https://media.aws.alkosto.com/media/catalog/product/cache/6/image/69ace863370f34bdf190e4e164b6e123/8/8/8806088921914_003.jpg" , "1", null, "Lava muy bien,pero es mas vieja que decir viejo cacorro", 800.000, true, 5, "Samsung"));
-        mProducto.add(new Producto("https://pepeganga.vteximg.com.br/arquivos/ids/305721-600-600/790372-1.jpg?v=636553536591730000", "2", null, "apenas para la abuela, que mucho lava", 9000.00, true, 1, "LG"));
-        mProducto.add(new Producto("https://metrocolombiafood.vteximg.com.br/arquivos/ids/243773-750-750/image-6bf83c9d64054618b0edd5e12888cc5c.jpg?v=637014886620900000", "3", null, "la vendo por necesidad, ayuda plis!", 100000.00, false, 2, "Central"));
-        mProducto.add(new Producto("https://hosteleria10.com/recursos/fotos/whirlpool-lavadora-awg-812-pro-01.jpg", "4", null, "suena muy rara,pero lava claro ", 16000.00, false, 0, "Home"));
-        mProducto.add(new Producto("https://mundoinnovos.com/wp-content/uploads/2018/10/LavSecHaceb-15kg-2-1.jpg", "5", null, "de las mejores del mercado", 1000.00, true, 1, "Wirlpool"));
+        mProducto.add(new Producto("https://media.aws.alkosto.com/media/catalog/product/cache/6/image/69ace863370f34bdf190e4e164b6e123/8/8/8806088921914_003.jpg" , "1", null, "Lava muy bien,pero es mas vieja que decir viejo cacorro", 800.000, true, 5, "Samsung","Lavadora Sansung como nueva"));
+        mProducto.add(new Producto("https://pepeganga.vteximg.com.br/arquivos/ids/305721-600-600/790372-1.jpg?v=636553536591730000", "2", null, "apenas para la abuela, que mucho lava", 9000.00, true, 1, "LG","Lavadora LG con todos lso lujos"));
+        mProducto.add(new Producto("https://metrocolombiafood.vteximg.com.br/arquivos/ids/243773-750-750/image-6bf83c9d64054618b0edd5e12888cc5c.jpg?v=637014886620900000", "3", null, "la vendo por necesidad, ayuda plis!", 100000.00, false, 2, "Central","trueque lavadora"));
+        mProducto.add(new Producto("https://hosteleria10.com/recursos/fotos/whirlpool-lavadora-awg-812-pro-01.jpg", "4", null, "suena muy rara,pero lava claro ", 16000.00, false, 0, "Home","Lavadaora de segunda pe"));
+        mProducto.add(new Producto("https://mundoinnovos.com/wp-content/uploads/2018/10/LavSecHaceb-15kg-2-1.jpg", "5", null, "de las mejores del mercado", 1000.00, true, 1, "Wirlpool","Compremela"));
     }
-
+//estas funciones no las Uso ,  solo era para probar el login
     @Override
     public void onAttach(@NonNull Context context) {
         if(context instanceof Activity){

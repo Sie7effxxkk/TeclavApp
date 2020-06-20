@@ -19,7 +19,9 @@ public class Producto implements Serializable {
     private String mMarca;
     private String mTitulo;
 
-    public Producto(String mUrlImage, String mId, Location mLocalizacion, String mDescripcion, Double mPrecio, boolean mEstado, int mDisponible, String mMarca) {
+//CONSTRUCOTR
+
+    public Producto(String mUrlImage, String mId, Location mLocalizacion, String mDescripcion, Double mPrecio, boolean mEstado, int mDisponible, String mMarca, String mTitulo) {
         this.mUrlImage = mUrlImage;
         this.mId = mId;
         this.mLocalizacion = mLocalizacion;
@@ -28,8 +30,12 @@ public class Producto implements Serializable {
         this.mEstado = mEstado;
         this.mDisponible = mDisponible;
         this.mMarca = mMarca;
+        this.mTitulo = mTitulo;
     }
-
+//METODOS GETTER
+    public String getmTitulo() {
+        return mTitulo;
+    }
 
     public String getmUrlImage() {
         return mUrlImage;
@@ -62,12 +68,12 @@ public class Producto implements Serializable {
     public String getmMarca() {
         return mMarca;
     }
-
+//metodos que se usan dentro del data binding
     public String comprobarEstado() {
         if (mEstado == true) {
-            return "Estado: Nuevo";
+            return "Nuevo";
         } else {
-            return "Estado:Segunda Mano";
+            return "Segunda Mano";
         }
 
     }
@@ -80,13 +86,13 @@ public class Producto implements Serializable {
     }
 
     public String Dispinibilidad(){
-        return "Disponibles:"+ String.valueOf(mDisponible);
+        return  String.valueOf(mDisponible);
     }
 
     public String DubleaPrecio() {
         return String.valueOf(mPrecio);
     }
-
+//cargar la imgane en el data binding con Glide
     @BindingAdapter("android:src")
     public static void setImageUrl(ImageView view, String urlImage) {
         Glide.with(view.getContext()).
@@ -94,9 +100,7 @@ public class Producto implements Serializable {
                 placeholder(R.drawable.ic_baseline_image_24).
                 into(view);
     }
-public int imagenToIn(){
-        return Integer.parseInt(mUrlImage);
-}
+
 
 
 }

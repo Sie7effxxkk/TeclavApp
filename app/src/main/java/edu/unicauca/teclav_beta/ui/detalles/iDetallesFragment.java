@@ -4,5 +4,5 @@ import edu.unicauca.teclav_beta.MainActivity;
 import edu.unicauca.teclav_beta.Producto;
 
 public interface iDetallesFragment {
-     void enviarProducto(Producto producto);
+     void enviarLogin(boolean b);
 }

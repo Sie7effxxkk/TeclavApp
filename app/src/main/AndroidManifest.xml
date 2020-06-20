@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:Android="http://schemas.android.com/apk/distribution"
     package="edu.unicauca.teclav_beta">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -12,14 +13,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ui.EnHoraBuena"></activity>
+        <activity
+            android:name=".ui.EnHoraBuena"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:parentActivityName=".ConfirmarCompra"
+            Android:alwaysRetainTaskState="true"
+            android:label="Finalice La Compra"
+            Android:launchMode="singleInstance"  />
+
         <activity
             android:name=".ConfirmarCompra"
-            android:parentActivityName=".MenuLoginActivity"></activity>
+            android:label="Confirmar Compra"
+            android:parentActivityName=".MenuLoginActivity"/>
         <activity
             android:name=".MenuLoginActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

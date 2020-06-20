@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6D64B"
+    android:background="#F6F1E4"
     tools:context=".ui.login.LoginFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -33,7 +33,12 @@
         android:layout_marginLeft="70dp"
         android:layout_marginEnd="70dp"
         android:layout_marginRight="70dp"
+        android:fontFamily="casual"
         android:text="Entrar"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#474747"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/button_registrarse"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -47,8 +52,12 @@
         android:layout_marginLeft="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
+        android:fontFamily="casual"
         android:text="Nombre de Usuario"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
         android:textSize="21sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -65,6 +74,9 @@
         android:ems="10"
         android:hint="Nombre..."
         android:inputType="textPersonName"
+        android:textColorHighlight="#000000"
+        android:textColorLink="#000000"
+        android:textCursorDrawable="@color/design_default_color_on_secondary"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -77,8 +89,12 @@
         android:layout_marginLeft="80dp"
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
+        android:fontFamily="casual"
         android:text="Contraseña"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#000000"
         android:textSize="21sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -86,8 +102,8 @@
 
     <EditText
         android:id="@+id/editTextTextPersonName2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="38dp"
         android:layout_marginStart="85dp"
         android:layout_marginLeft="85dp"
         android:layout_marginEnd="80dp"
@@ -110,7 +126,12 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:layout_marginBottom="8dp"
+        android:fontFamily="casual"
         android:text="Registrarse"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#474747"
+        android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -152,12 +173,15 @@
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="casual"
         android:text="Teclav.inc"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button_registrarse"
-        app:layout_constraintVertical_bias="0.48000002" />
+        app:layout_constraintVertical_bias="0.843" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

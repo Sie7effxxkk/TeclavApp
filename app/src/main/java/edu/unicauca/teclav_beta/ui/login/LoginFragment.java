@@ -16,6 +16,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -30,10 +32,6 @@ import edu.unicauca.teclav_beta.ui.registrar.RegistroFragment;
  * create an instance of this fragment.
  */
 public class LoginFragment extends Fragment implements Serializable {
-    ;
-    public final static String EXTRA_NOMBRE = "edu.unicauca.teclav_beta.Usuario";
-    private boolean LoginDesdeLogin = false;
-    private EditText editNombre;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,7 +54,7 @@ public class LoginFragment extends Fragment implements Serializable {
      * @param param2 Parameter 2.
      * @return A new instance of fragment RegistroFragment.
      */
-    // TODO: Rename and change types and number of parameters
+    // Funcion que no uso , solo era para guardar el estado
     public static LoginFragment newInstance(String param1, String param2) {
         LoginFragment fragment = new LoginFragment();
         Bundle args = new Bundle();
@@ -65,7 +63,7 @@ public class LoginFragment extends Fragment implements Serializable {
         fragment.setArguments(args);
         return fragment;
     }
-
+    //Funcion para llamar la vista , pero no la uso
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,47 +72,55 @@ public class LoginFragment extends Fragment implements Serializable {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+//llama la vista sonbre el container
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-
+//cargamos vista y vista de los botones
         final View root = inflater.inflate(R.layout.fragment_login, container, false);
         Button bRegistrar = root.findViewById(R.id.button_registrarse);
 
         Button bEntrar = root.findViewById(R.id.buttonEntrar_login);
-
+//creamos atrivutos
         @SuppressLint("CutPasteId") final EditText editText = root.findViewById(R.id.editTextTextPersonName);
-
+        @SuppressLint("CutPasteId") final EditText editTextc = root.findViewById(R.id.editTextTextPersonName2);
+ //BOTON que lo lleva al fragment registro
         bRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 FragmentTransaction fr = getFragmentManager().beginTransaction();
                 fr.replace(R.id.nav_host_fragment, new RegistroFragment());
                 fr.commit();
             }
         });
-
+//BOTON para inicar Sesion
         bEntrar.setOnClickListener(new View.OnClickListener() {
 
             @RequiresApi(api = Build.VERSION_CODES.KITKAT)
             @Override
             public void onClick(View v) {
+                //Atributos que se usan para comprobar si el usuario existe
                 Usuario mUsuario = new Usuario();
                 String nombreNav;
+                String ContraseñaNav;
+                String contraseña=mUsuario.getmContraseña();
                 String comparar = mUsuario.getmNombre();
                 nombreNav = editText.getText().toString();
-                if (Objects.equals(nombreNav, comparar)) {
+                ContraseñaNav = editTextc.getText().toString();
+                //excepcion de ingreso
+                if (Objects.equals(nombreNav, comparar)&&Objects.equals(contraseña,ContraseñaNav)) {
+                    //cargamos el intento que nos llevara al menu de login
                     Intent i = new Intent(getActivity(), MenuLoginActivity.class);
+                    //eviamos los datos del objeto  persona, necesarios para cargarse en el menu
                     i.putExtra("NOMBRE",mUsuario.getmNombre());
                     i.putExtra("CORREO",mUsuario.getmCorreo());
                     i.putExtra("FOTO",mUsuario.getmFoto());
+                    i.putExtra("LOGEADO",true);
                     startActivityForResult(i,0);
-                } else {
-                    Toast.makeText(getContext(), "Incorrect" + nombreNav, Toast.LENGTH_SHORT).show();
-                }
+                } else
+                    Snackbar.make(v, "INGRESE DATOS CORRECTOS", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
             }
         });
         return root;

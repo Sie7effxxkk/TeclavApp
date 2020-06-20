@@ -26,8 +26,8 @@
     </fragment>
 
     <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="edu.unicauca.teclav_beta.ui.slideshow.SlideshowFragment"
+        android:id="@+id/nav_registro"
+        android:name="edu.unicauca.teclav_beta.ui.registrar.RegistroFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_slideshow" />
     <fragment

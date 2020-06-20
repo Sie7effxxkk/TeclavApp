@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide;
 import java.io.Serializable;
 
 public class Usuario implements Serializable {
+    //DATOS QUEMADOS
     private String mNombre="Andres";
     private String mContraseña="1234";
     private String mId="24";
@@ -56,16 +57,7 @@ public class Usuario implements Serializable {
         return mFoto;
     }
 
-    public String getmTelefono() {
-        return mTelefono;
-    }
-    @BindingAdapter("android:src")
-    public static void setImageUrl(ImageView view, String urlImage) {
-        Glide.with(view.getContext()).
-                load(urlImage).
-                placeholder(R.drawable.ic_baseline_image_24).
-                into(view);
-    }
+
 
 
 

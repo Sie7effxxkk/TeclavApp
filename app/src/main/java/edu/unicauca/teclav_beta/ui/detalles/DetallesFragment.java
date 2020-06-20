@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
 
 import edu.unicauca.teclav_beta.ConfirmarCompra;
 import edu.unicauca.teclav_beta.Producto;
@@ -28,53 +32,45 @@ public class DetallesFragment extends Fragment   {
     TextView marca_detalle,precio_detalle,descripcion_detalle,estado_detalle,disponibles_detalle;
     ImageView imgen_detalle;
     FragmentDatallesBinding  binding;
-    private boolean comprar = false;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public DetallesFragment() {
-        // Required empty public constructor
+    private boolean login= true;
+    //Comprobar estado de login
+    public void setLogin(boolean login) {
+        this.login = login;
     }
 
-  /*  /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment CompraFragment.
-     */
+    public boolean isLogin() {
+        return login;
+    }
 
+    Producto producto;
+
+
+    public DetallesFragment() {
+
+    }
+//crea la vista del fragmento
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //Inflamos la inforacion que viene del databinding y llenar la lista
         binding = FragmentDatallesBinding.inflate(LayoutInflater.from(container.getContext()),container,false);
-        Bundle obProducto= getArguments();
-        final Producto producto;
+        final Bundle obProducto= getArguments();
         producto =(Producto) obProducto.getSerializable("objeto");
         binding.setProducto(producto);
         binding.executePendingBindings();
         View view = binding.getRoot();
-
+        //Asignamos el boto de compra
         Button bComprar = view.findViewById(R.id.button_comprar);
         bComprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Atrapa y emvia los datos en un intent , a su vez inician la siguiente actividad
                 Intent i = new Intent(getActivity(), ConfirmarCompra.class);
+                i.putExtra("PRECIO",producto.DubleaPrecio());
+                i.putExtra("TITULO",producto.getmTitulo());
                 startActivity(i);
             }
         });
-
-      return view;
+        return view;
     }
-
-
-
 }
